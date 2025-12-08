@@ -79,7 +79,7 @@ export default function Hero() {
               fontSize: "clamp(3rem, 10vw, 3.5rem)",
             }}
           >
-            transform&nbsp;your&nbsp;
+            Send&nbsp;your&nbsp;
           </Typography>
           <Typography
             component="span"
@@ -93,7 +93,7 @@ export default function Hero() {
               }),
             })}
           >
-            cover letter
+            client's data
           </Typography>
           <Typography
             sx={{
@@ -102,8 +102,8 @@ export default function Hero() {
               width: { sm: "100%", md: "80%" },
             }}
           >
-            Explore our cutting-edge technology, delivering high-quality cover
-            letters tailored to your job advertisements. Elevate your experience
+            Explore our cutting-edge technology, delivering high-quality
+            symptom data to your clients. Elevate your experience
             with our top-tier services.
           </Typography>
           <UploadFile />
@@ -119,9 +119,9 @@ export default function Hero() {
             .
           </Typography>
         </Stack>
-        <Box sx={{ width: { xs: "100%", sm: "100%" }, mt: 10 }}>
+        {/* <Box sx={{ width: { xs: "100%", sm: "100%" }, mt: 10 }}>
           {mode === "light" ? <MorphingCV /> : <MorphingCVDark />}
-        </Box>
+        </Box> */}
       </Container>
     </Box>
   );
