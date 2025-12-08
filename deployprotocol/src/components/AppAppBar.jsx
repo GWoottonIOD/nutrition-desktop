@@ -112,7 +112,7 @@ export default function AppAppBar() {
               variant="text"
               color="info"
               size="small"
-              onClick={() => navigate("/CL-API/")}
+              onClick={() => navigate("/nutrition-desktop/")}
             >
               <HomeIcon />
             </Button>
