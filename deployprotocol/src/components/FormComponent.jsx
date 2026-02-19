@@ -8,7 +8,7 @@ import {
   Stack,
   TextField,
 } from "@mui/material";
-import React from "react";
+import AddBoxIcon from '@mui/icons-material/AddBox';
 
 export default function FormComponent({
   obvs,
@@ -105,7 +105,8 @@ export default function FormComponent({
         // color={emailError ? 'error' : 'primary'}
       />
       <br />
-      <Button onClick={addToArr}>Add</Button>
+      <Button onClick={addToArr}><AddBoxIcon /></Button>
     </>
   );
 }
+
