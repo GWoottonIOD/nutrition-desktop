@@ -8,7 +8,7 @@ import {
   Stack,
   TextField,
 } from "@mui/material";
-import AddBoxIcon from '@mui/icons-material/AddBox';
+import AddIcon from '@mui/icons-material/Add';
 
 export default function FormComponent({
   obvs,
@@ -105,7 +105,7 @@ export default function FormComponent({
         // color={emailError ? 'error' : 'primary'}
       />
       <br />
-      <Button onClick={addToArr}><AddBoxIcon /></Button>
+      <Button onClick={addToArr} variant="outlined"><AddIcon /></Button>
     </>
   );
 }
