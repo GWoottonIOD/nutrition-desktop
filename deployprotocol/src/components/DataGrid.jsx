@@ -8,7 +8,7 @@ const rows = [
 ];
 
 const columns = [
-  { field: 'name', headerName: 'Observation', flex: 1 },
+  { field: 'name', headerName: 'Observation', flex: 3 },
     { field: 'lvl', headerName: 'Level', flex: 1 },
 ];
 

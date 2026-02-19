@@ -38,6 +38,7 @@ export default function FormComponent({
             gap: 2,
             animation: `${fadeIn} 1s ease-in forwards`,
             justifyContent: "centre",
+            flex: 3
           }}
         >
           <FormLabel id="observation">Observation</FormLabel>
@@ -58,6 +59,7 @@ export default function FormComponent({
             gap: 2,
             animation: `${fadeIn} 1s ease-in forwards`,
             justifyContent: "centre",
+            flex: 1
           }}
         >
           <FormLabel id="level">Level</FormLabel>
