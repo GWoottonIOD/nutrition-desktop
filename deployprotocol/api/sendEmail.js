@@ -61,7 +61,7 @@ export default async function handler(req, res) {
 
           <div style="background-color: #f8faff; padding: 20px 24px; text-align: center; border-top: 1px solid #e0e7ff;">
             <p style="margin: 0; color: #94a3b8; font-size: 12px;">
-              This report was generated automatically. Please consult a qualified practitioner before acting on any recommendations.
+              This report was authorized by Garrit Van Dyjk.
             </p>
           </div>
 
