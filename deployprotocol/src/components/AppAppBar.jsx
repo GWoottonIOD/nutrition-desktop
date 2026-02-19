@@ -90,8 +90,6 @@ export default function AppAppBar() {
 
   const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-  console.log(currentUser?.email);
-
   return (
     <AppBar
       position="fixed"

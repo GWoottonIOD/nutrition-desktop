@@ -37,17 +37,15 @@ const StyledBox = styled("div")(({ theme }) => ({
 }));
 
 export default function GetStarted() {
-  console.log("GetStarted module loaded");
   const { mode, systemMode, setMode } = useColorScheme();
   const { currentUser } = useCurrentUserContext();
   const [name, setName] = React.useState(currentUser?.name);
   const [recipient, setRecipient] = React.useState("user@email.com");
-  const [templates, setTemplates] = React.useState([1, 2, 3]);
+  const [mailedState, setMailedState] = React.useState("");
   const [lvl, setLvl] = React.useState("");
   const [obvs, setObvs] = React.useState("");
   const [completeObvs, setCompleteObvs] = React.useState([]);
 
-  console.log(completeObvs);
   const lvlArr = [1, 2, 3, 4, 5];
 
   const obsArr = [
@@ -122,7 +120,7 @@ export default function GetStarted() {
                 fontSize: "clamp(3rem, 10vw, 3.5rem)",
               }}
             >
-              Let's
+              Observation
             </Typography>
             <Typography
               component="div"
@@ -136,7 +134,7 @@ export default function GetStarted() {
                 }),
               })}
             >
-              Go!
+              Mailer
             </Typography>
             <OberservationGrid data={completeObvs} />
 
@@ -151,9 +149,9 @@ export default function GetStarted() {
               setLvl={setLvl}
               setRecipient={setRecipient}
             />
-            {/* </Stack> */}
+            {mailedState}
             {completeObvs.length > 0 && recipient !== "user@email.com" ? (
-              <Button onClick={() => sendTableEmail(completeObvs, recipient)}>
+              <Button onClick={() => setMailedState(sendTableEmail(completeObvs, recipient))}>
                 Send Mail
               </Button>
             ) : null}

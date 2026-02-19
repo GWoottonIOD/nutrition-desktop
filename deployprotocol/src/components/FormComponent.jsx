@@ -19,20 +19,18 @@ export default function FormComponent({
   recipient,
   setObvs,
   setLvl,
-  setRecipient
+  setRecipient,
 }) {
-
-    const fadeIn = keyframes`
+  const fadeIn = keyframes`
   from { opacity: 0; }
   to { opacity: 1; }
 `;
   return (
     <>
-    
       <Stack
-        direction={{ xs: "column", sm: "column" }}
-        spacing={{ xs: 1, sm: 2, md: 4 }} 
-        sx={{ width: "100%" }}       
+        direction={{ xs: "column", sm: "row" }}
+        spacing={{ xs: 1, sm: 2, md: 4 }}
+        sx={{ width: "100%" }}
       >
         <FormControl
           fullWidth
@@ -42,52 +40,58 @@ export default function FormComponent({
             justifyContent: "centre",
           }}
         >
-        <FormLabel id="observation">Observation</FormLabel>
-        <Select
-          // labelId="demo-simple-select-label"
-          id="obvs"
-          value={obvs}
-          onChange={(e) => setObvs(e.target.value)}
-        >
-          {obsArr.map((item) => (
-            <MenuItem value={item.id}>{item.name}</MenuItem>
-          ))}
-        </Select>
-        <br />
-        <FormLabel id="level">Level</FormLabel>
-        <Select
-          // labelId="demo-simple-select-label"
-          id="lvl"
-          value={lvl}
-          onChange={(e) => setLvl(e.target.value)}
-        >
-          {lvlArr.map((item) => (
-            <MenuItem value={item}>{item}</MenuItem>
-          ))}
-        </Select>
-        <br />
-        {/* </Stack> */}
-        <Button onClick={addToArr}>Add</Button>
-        <br />
-        <FormLabel htmlFor="recipient">Recipient</FormLabel>
-        <TextField
-          // error={emailError}
-          // helperText={emailErrorMessage}
-          id="recipient"
-          type="email"
-          name="recipient"
-          placeholder={recipient}
-          autoComplete="recipient"
-          autoFocus
-          required
-          variant="outlined"
+          <FormLabel id="observation">Observation</FormLabel>
+          <Select
+            // labelId="demo-simple-select-label"
+            id="obvs"
+            value={obvs}
+            onChange={(e) => setObvs(e.target.value)}
+          >
+            {obsArr.map((item) => (
+              <MenuItem value={item.id}>{item.name}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <FormControl
           fullWidth
-          onChange={(e) => setRecipient(e.target.value)}
-          // color={emailError ? 'error' : 'primary'}
-        />
-        <br />
+          sx={{
+            gap: 2,
+            animation: `${fadeIn} 1s ease-in forwards`,
+            justifyContent: "centre",
+          }}
+        >
+          <FormLabel id="level">Level</FormLabel>
+          <Select
+            // labelId="demo-simple-select-label"
+            id="lvl"
+            value={lvl}
+            onChange={(e) => setLvl(e.target.value)}
+          >
+            {lvlArr.map((item) => (
+              <MenuItem value={item}>{item}</MenuItem>
+            ))}
+          </Select>
         </FormControl>
       </Stack>
+      <br />
+      <FormLabel htmlFor="recipient">Recipient</FormLabel>
+      <TextField
+        // error={emailError}
+        // helperText={emailErrorMessage}
+        id="recipient"
+        type="email"
+        name="recipient"
+        placeholder={recipient}
+        autoComplete="recipient"
+        autoFocus
+        required
+        variant="outlined"
+        fullWidth
+        onChange={(e) => setRecipient(e.target.value)}
+        // color={emailError ? 'error' : 'primary'}
+      />
+      <br />
+      <Button onClick={addToArr}>Add</Button>
     </>
   );
 }
