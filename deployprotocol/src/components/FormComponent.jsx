@@ -38,10 +38,15 @@ export default function FormComponent({
             gap: 2,
             animation: `${fadeIn} 1s ease-in forwards`,
             justifyContent: "centre",
-            flex: 3
+            flex: 3,
           }}
         >
-          <FormLabel id="observation">Observation</FormLabel>
+          <FormLabel
+            id="observation"
+            sx={{ fontWeight: "bold", fontSize: "1.2rem" }}
+          >
+            Observation
+          </FormLabel>
           <Select
             // labelId="demo-simple-select-label"
             id="obvs"
@@ -59,10 +64,12 @@ export default function FormComponent({
             gap: 2,
             animation: `${fadeIn} 1s ease-in forwards`,
             justifyContent: "centre",
-            flex: 1
+            flex: 1,
           }}
         >
-          <FormLabel id="level">Level</FormLabel>
+          <FormLabel id="level" sx={{ fontWeight: "bold", fontSize: "1.2rem" }}>
+            Level
+          </FormLabel>
           <Select
             // labelId="demo-simple-select-label"
             id="lvl"
@@ -76,7 +83,12 @@ export default function FormComponent({
         </FormControl>
       </Stack>
       <br />
-      <FormLabel htmlFor="recipient">Recipient</FormLabel>
+      <FormLabel
+        htmlFor="recipient"
+        sx={{ fontWeight: "bold", fontSize: "1.2rem" }}
+      >
+        Recipient
+      </FormLabel>
       <TextField
         // error={emailError}
         // helperText={emailErrorMessage}
