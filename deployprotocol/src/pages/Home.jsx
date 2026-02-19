@@ -1,6 +1,5 @@
-import React from "react";
 import { useCurrentUserContext } from "../contexts/CurrentUserContext";
-import MarketingPage from "../components/MarketingPage";
+// import MarketingPage from "../components/MarketingPage";
 import GetStarted from "../components/GetStarted";
 import { Box } from "@mui/material";
 
