@@ -7,8 +7,6 @@ import { CssBaseline } from '@mui/material'
 import { CurrentUserContext, CurrentUserHolder } from './contexts/CurrentUserContext'
 
 function App(props) {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <CurrentUserHolder>

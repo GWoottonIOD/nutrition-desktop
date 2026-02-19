@@ -1,4 +1,4 @@
-import { Container } from '@mui/material';
+import { Box } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 
 const rows = [
@@ -8,14 +8,14 @@ const rows = [
 ];
 
 const columns = [
-  { field: 'name', headerName: 'Observation', width: 200 },
-    { field: 'lvl', headerName: 'Level', width: 200 },
+  { field: 'name', headerName: 'Observation', flex: 1 },
+    { field: 'lvl', headerName: 'Level', flex: 1 },
 ];
 
 export default function OberservationGrid(props) {
   return (
-    <Container sx={{ height: '20%'}} >
+    <Box sx={{ height: 400, width: '100%' }}>
       <DataGrid rows={props.data} columns={columns} />
-    </Container>
+    </Box>
   );
 }

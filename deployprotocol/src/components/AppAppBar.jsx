@@ -130,7 +130,7 @@ export default function AppAppBar() {
               alignItems: "center",
             }}
           >
-            <SignedInOrNotLarge width="Not full" />
+            {/* <SignedInOrNotLarge width="Not full" /> */}
             <ColorModeIconDropdown />
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" }, gap: 1 }}>
@@ -161,7 +161,7 @@ export default function AppAppBar() {
                 </Box>
 
                 <Divider sx={{ my: 3 }} />
-                <SignedInOrNotLarge width="full" />
+                {/* <SignedInOrNotLarge width="full" /> */}
               </Box>
             </Drawer>
           </Box>

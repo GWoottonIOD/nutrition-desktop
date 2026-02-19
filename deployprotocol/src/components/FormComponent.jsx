@@ -28,9 +28,11 @@ export default function FormComponent({
 `;
   return (
     <>
+    
       <Stack
         direction={{ xs: "column", sm: "column" }}
-        spacing={{ xs: 1, sm: 2, md: 4 }}
+        spacing={{ xs: 1, sm: 2, md: 4 }} 
+        sx={{ width: "100%" }}       
       >
         <FormControl
           fullWidth
@@ -38,7 +40,6 @@ export default function FormComponent({
             gap: 2,
             animation: `${fadeIn} 1s ease-in forwards`,
             justifyContent: "centre",
-            // display: "flex",
           }}
         >
         <FormLabel id="observation">Observation</FormLabel>

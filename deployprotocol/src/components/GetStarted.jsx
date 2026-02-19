@@ -2,33 +2,14 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
-import InputLabel from "@mui/material/InputLabel";
-import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
-import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import visuallyHidden from "@mui/utils/visuallyHidden";
 import { styled, useColorScheme } from "@mui/material/styles";
-import UploadFile from "./UploadFile";
-import MorphingCV from "./MorphingCV";
-import MorphingCVDark from "./MorphingCVDark";
 import { useCurrentUserContext } from "../contexts/CurrentUserContext";
-import { Card, SignInContainer } from "../pages/SignIn";
-import { keyframes } from "@emotion/react";
-import {
-  Checkbox,
-  Divider,
-  FormControl,
-  FormControlLabel,
-  FormLabel,
-  MenuItem,
-  Select,
-} from "@mui/material";
-import ForgotPassword from "./ForgotPassword";
-import DataGrid from "./DataGrid";
 import OberservationGrid from "./DataGrid";
 import { sendTableEmail } from "./SendMail";
 import FormComponent from "./FormComponent";
+import { PageContainer } from "./PageContainer";
 
 const StyledBox = styled("div")(({ theme }) => ({
   alignSelf: "center",
@@ -41,7 +22,6 @@ const StyledBox = styled("div")(({ theme }) => ({
   border: "1px solid",
   borderColor: (theme.vars || theme).palette.grey[200],
   boxShadow: "0 0 12px 8px hsla(220, 25%, 80%, 0.2)",
-  backgroundImage: <MorphingCVDark />,
   backgroundSize: "cover",
   [theme.breakpoints.up("sm")]: {
     marginTop: theme.spacing(10),
@@ -57,6 +37,7 @@ const StyledBox = styled("div")(({ theme }) => ({
 }));
 
 export default function GetStarted() {
+  console.log("GetStarted module loaded");
   const { mode, systemMode, setMode } = useColorScheme();
   const { currentUser } = useCurrentUserContext();
   const [name, setName] = React.useState(currentUser?.name);
@@ -99,22 +80,17 @@ export default function GetStarted() {
     const obs = obsArr.find((obv) => obv.id === obvs);
     setCompleteObvs((prev) => [...prev, { ...obs, lvl: lvl }]);
   };
-  // const formArr =[]
-
-  // const form =
-  // <FormControl fullWidth>
-  //   {formArr.map((form) => {
-
-  //   })}
-  // </FormControl>
 
   return (
     <>
       <Box
-        id="hero"
+        id="GetStarted"
         sx={(theme) => ({
-          minWidth: "86vw",
-          minHeight: "100vh",
+          // minWidth: "86vw",
+          width: "100%",
+          padding: "8px 12px",
+          display: "flex",
+          flexShrink: 0,
           backgroundRepeat: "no-repeat",
           backgroundImage:
             "radial-gradient(ellipse 80% 50% at 50% -20%, hsl(210, 100%, 90%), transparent)",
@@ -122,21 +98,19 @@ export default function GetStarted() {
             backgroundImage:
               "radial-gradient(ellipse 80% 50% at 50% -20%, hsl(210, 100%, 16%), transparent)",
           }),
+          pt: { xs: 14, sm: 20 },
+          pb: { xs: 8, sm: 12 },
         })}
       >
-        <Container
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            pt: { xs: 14, sm: 20 },
-            pb: { xs: 8, sm: 12 },
-          }}
-        >
+        <PageContainer maxWidth="lg" disableGutters>
           <Stack
             spacing={2}
             useFlexGap
-            sx={{ justifyContent: "space between", alignItems: "center", width: '100%' }}
+            sx={{
+              justifyContent: "space between",
+              alignItems: "center",
+              width: "100%",
+            }}
           >
             {/* <SitemarkIcon /> */}
             <Typography
@@ -151,7 +125,7 @@ export default function GetStarted() {
               Let's
             </Typography>
             <Typography
-              component="span"
+              component="div"
               variant="h1"
               sx={(theme) => ({
                 wordBreak: "break-word",
@@ -164,47 +138,27 @@ export default function GetStarted() {
             >
               Go!
             </Typography>
-            <Box
-              component="form"
-              // onSubmit={handleSubmit}
-              noValidate
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                width: "100%",
-                gap: 2,
-                my: "10%",
-              }}
-            >
-                {/* <Stack
-                  direction={{ xs: "column", sm: "row" }}
-                  spacing={{ xs: 0, sm: 0, md: '20%' }}
-                > */}
-                  <OberservationGrid data={completeObvs} />
+            <OberservationGrid data={completeObvs} />
 
-                  <FormComponent
-                    obvs={obvs}
-                    obsArr={obsArr}
-                    lvl={lvl}
-                    lvlArr={lvlArr}
-                    addToArr={addToArr}
-                    recipient={recipient}
-                    setObvs={setObvs}
-                    setLvl={setLvl}
-                    setRecipient={setRecipient}
-                  />
-                {/* </Stack> */}
-                {completeObvs.length > 0 && recipient !== "user@email.com" ? (
-                  <Button
-                    onClick={() => sendTableEmail(completeObvs, recipient)}
-                  >
-                    Send Mail
-                  </Button>
-                ) : null}
-                {/* <Button>Send to </Button> */}
-            </Box>
+            <FormComponent
+              obvs={obvs}
+              obsArr={obsArr}
+              lvl={lvl}
+              lvlArr={lvlArr}
+              addToArr={addToArr}
+              recipient={recipient}
+              setObvs={setObvs}
+              setLvl={setLvl}
+              setRecipient={setRecipient}
+            />
+            {/* </Stack> */}
+            {completeObvs.length > 0 && recipient !== "user@email.com" ? (
+              <Button onClick={() => sendTableEmail(completeObvs, recipient)}>
+                Send Mail
+              </Button>
+            ) : null}
           </Stack>
-        </Container>
+        </PageContainer>
       </Box>
     </>
   );
