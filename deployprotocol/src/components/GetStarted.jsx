@@ -10,6 +10,7 @@ import OberservationGrid from "./DataGrid";
 import { sendTableEmail } from "./SendMail";
 import FormComponent from "./FormComponent";
 import { PageContainer } from "./PageContainer";
+import { obsArr } from "./ObsArr";
 
 const StyledBox = styled("div")(({ theme }) => ({
   alignSelf: "center",
@@ -47,32 +48,6 @@ export default function GetStarted() {
   const [completeObvs, setCompleteObvs] = React.useState([]);
 
   const lvlArr = [1, 2, 3, 4, 5];
-
-  const obsArr = [
-    {
-      id: 1,
-      name: "Hemachromic Cells",
-      association:
-        "Low Energy, Fatigue, Cellular oxygination issues, can be connected to haemoglobin levels and Coeliac Disease.",
-      recommendation:
-        "Iron Bisglycinate, B12, Folate, B3, B5, B6, Mag/Potassion. Consider IV B-vitamins.",
-    },
-    {
-      id: 2,
-      name: "Chylomicrons (delayed clearing)",
-      association:
-        "Gastrointestinal Pain (esp. right side); Headaches; Nausea; Low Moods; Hormonal Imbalances; Billiuos issues.",
-      recommendation:
-        "Lecithin; Lipase Digestive Enzymes about 30 minutes after meal (Solgar Advanced); Artichoke Leaf Extract; Milk Thistle.",
-    },
-    {
-      id: 3,
-      name: "Chylomicrons (delayed onset - should be present after 1 hour)",
-      association: "the Premium version",
-      recommendation:
-        "Lipase Digestive Enzymes (Solgar Advanced); Artichoke Leaf Extract; Milk Thistle.",
-    },
-  ];
 
   const addToArr = () => {
     const obs = obsArr.find((obv) => obv.id === obvs);
